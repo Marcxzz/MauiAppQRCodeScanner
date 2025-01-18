@@ -29,7 +29,7 @@ namespace MauiAppProvaQR
             {
                 if (!alreadyDisplayed)
 				{
-					alreadyDisplayed = true;
+					alreadyDisplayed = true; // visualizza popup una sola volta
 					await DisplayAlert("QR code scanned", first.Value, "OK");
                 }
             });
