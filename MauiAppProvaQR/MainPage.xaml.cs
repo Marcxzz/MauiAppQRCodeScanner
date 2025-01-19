@@ -30,8 +30,11 @@ namespace MauiAppProvaQR
                 if (!alreadyDisplayed)
 				{
 					alreadyDisplayed = true; // visualizza popup una sola volta
-					await DisplayAlert("QR code scanned", first.Value, "OK");
-                }
+                    bool userResponse = await DisplayAlert("QR code scanned", $"Scanned value: {first.Value}", "Ok", "Cancel");
+
+					if (userResponse || !userResponse) // soluzione molto poco elegante per resettare il booleano alla conferma dell'utente
+                        alreadyDisplayed = false;
+				}
             });
         }
     }
